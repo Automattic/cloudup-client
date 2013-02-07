@@ -3,7 +3,8 @@ var Cloudup = require('..');
 
 var client = new Cloudup({
   url: 'http://localhost:3000',
-  token: 'h1YXjGq3mru91ArPAAAD'
+  user: 'ewald',
+  pass: 'Dev1'
 });
 
 describe('Collection', function(){
