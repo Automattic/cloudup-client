@@ -10,6 +10,13 @@ var client = new Cloudup({
 
 var col = client.collection({ title: 'Animals' });
 
+col.on('item', function(item){
+  console.log('upload %s', item.title);
+  item.on('progress', function(n){
+    console.log('progress %s %d%', item.title, n);
+  });
+});
+
 var a = col
   .item({ title: 'Maru 1' })
   .file('examples/files/maru-1.jpg')
@@ -22,7 +29,6 @@ var c = col
   .item({ title: 'Maru 3' })
   .file('examples/files/maru-3.jpg')
 
-console.log('creating collection');
 col.save(function(){
   console.log('created %s', col._id);
   client.collections(function(err, cols){
