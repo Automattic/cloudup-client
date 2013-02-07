@@ -1,5 +1,6 @@
 
-var Cloudup = require('..');
+var Cloudup = require('..')
+  , assert = require('better-assert');
 
 var client = new Cloudup({
   url: 'http://localhost:3000',
@@ -19,7 +20,12 @@ describe('Collection', function(){
   describe('.save(fn)', function(){
     it('should save the collection', function(done){
       var col = client.collection({ title: 'Ferrets' });
-      col.save(done);
+      col.save(function(err, col){
+        if (err) return done(err);
+        assert(col._id);
+        assert(col.uid);
+        done();
+      });
     })
   })
 })
