@@ -1,0 +1,13 @@
+{
+  "name": "cloudup-client",
+  "description": "cloudup api client",
+  "version": "0.0.1",
+  "keywords": [
+    "cloudup",
+    "api",
+    "client"
+  ],
+  "dependencies": {
+    "superagent": "~0.12.2"
+  }
+}
