@@ -20,11 +20,21 @@ describe('Collection', function(){
   describe('.save(fn)', function(){
     it('should save the collection', function(done){
       var col = client.collection({ title: 'Ferrets' });
-      col.save(function(err, col){
+      col.save(function(err){
         if (err) return done(err);
         assert(col._id);
         assert(col.uid);
         done();
+      });
+    })
+  })
+
+  describe('.remove(fn)', function(){
+    it('should remove the collection', function(done){
+      var col = client.collection({ title: 'Ferrets' });
+      col.save(function(err){
+        if (err) return done(err);
+        col.remove(done);
       });
     })
   })
