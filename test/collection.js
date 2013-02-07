@@ -2,7 +2,7 @@
 var Cloudup = require('..');
 
 var client = new Cloudup({
-  url: 'http://local.cloudup.com',
+  url: 'http://localhost:3000',
   token: 'h1YXjGq3mru91ArPAAAD'
 });
 
