@@ -15,5 +15,6 @@
     "mocha": "*",
     "should": "*",
     "better-assert": "*"
-  }
+  },
+  "main": "lib/client"
 }
