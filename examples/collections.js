@@ -23,8 +23,13 @@ var c = col
   .file('examples/files/maru-3.jpg')
 
 col.save(function(){
+  console.log('created %s', col._id);
   client.collections(function(err, cols){
     if (err) throw err;
-    console.log(cols);
+    console.log('removing %s', cols[0]._id);
+    cols[0].remove(function(err){
+      if (err) throw err;
+      console.log('removed');
+    });
   });
 });
