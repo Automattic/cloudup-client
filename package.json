@@ -8,6 +8,12 @@
     "client"
   ],
   "dependencies": {
-    "superagent": "~0.12.2"
+    "superagent": "~0.12.2",
+    "debug": "~0.7.2"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "better-assert": "*"
   }
 }
