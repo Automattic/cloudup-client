@@ -23,4 +23,16 @@ describe('Item', function(){
       })
     })
   })
+
+  describe('.remove(fn)', function(){
+    it('should remove the item', function(done){
+      var col = client.collection({ title: 'Maru photos' });
+      var item = col.item({ title: 'Maru 1' });
+      item.file('test/fixtures/maru-1.jpg');
+      col.save(function(err){
+        if (err) return done(err);
+        item.remove(done);
+      });
+    })
+  })
 });
