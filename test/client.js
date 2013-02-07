@@ -8,9 +8,8 @@ describe('Cloudup', function(){
         url: 'http://local.cloudup.com'
       });
 
-      client
-      .collection({ title: 'Something' })
-      .constructor.name.should.equal('Collection');
+      var col = client.collection({ title: 'Something' });
+      col.constructor.name.should.equal('Collection');
     })
   })
 })
