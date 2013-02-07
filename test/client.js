@@ -18,10 +18,23 @@ describe('Cloudup', function(){
 
   describe('.collections(fn)', function(){
     it('should respond with an array of collections', function(done){
-      client.collections(function(err, cols){
+      client
+      .collection({ title: 'Animals' })
+      .save(function(err){
         if (err) return done(err);
-        assert(Array.isArray(cols));
-        done();
+        client.collections(function(err, cols){
+          if (err) return done(err);
+          assert(Array.isArray(cols));
+          var col = cols.shift();
+          assert('Collection' == col.constructor.name);
+          assert(col._id);
+          assert(col.created_at);
+          assert(col.updated_at);
+          assert(col.title);
+          assert('number' == typeof col.views);
+          assert(Array.isArray(col.items));
+          done();
+        });
       });
     })
   })
