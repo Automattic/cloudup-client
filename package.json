@@ -9,7 +9,8 @@
   ],
   "dependencies": {
     "superagent": "~0.12.2",
-    "debug": "~0.7.2"
+    "debug": "~0.7.2",
+    "batch": "~0.2.1"
   },
   "devDependencies": {
     "mocha": "*",
