@@ -30,14 +30,24 @@ describe('Collection', function(){
 
     it('should save the items', function(done){
       var col = client.collection({ title: 'Maru' });
-      var a = col.item({ title: 'Maru 1' }).file('test/fixtures/maru-1.jpg');
-      var b = col.item({ title: 'Maru 2' }).file('test/fixtures/maru-2.jpg');
+      var a = col.item({ title: 'make' }).file('Makefile');
+      var b = col.item({ title: 'conf' }).file('package.json');
       col.save(function(err){
         if (err) return done(err);
         assert(a._id);
         assert(b._id);
         done();
       });
+    })
+  })
+
+  describe('.file(path)', function(){
+    it('should upload the file as an item', function(done){
+      client
+      .collection({ title: 'Maru' })
+      .file('Makefile')
+      .file('package.json')
+      .save(done);
     })
   })
 
