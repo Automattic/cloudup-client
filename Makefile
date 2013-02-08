@@ -13,4 +13,9 @@ test-collections:
 test-items:
 	@make test ARGS=test/item.js
 
-.PHONY: test test-collections test-items
+docs:
+	@dox --api < lib/client.js
+	@dox --api < lib/collection.js
+	@dox --api < lib/item.js
+
+.PHONY: test test-collections test-items docs
