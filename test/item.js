@@ -22,6 +22,19 @@ describe('Item', function(){
         });
       })
     })
+
+    describe('when a url is given', function(){
+      it('should create the item', function(done){
+        var col = client.collection({ title: 'Bookmarks' });
+        var item = col.item().url('http://yahoo.com');
+        col.save(function(err){
+          if (err) return done(err);
+          console.log(item);
+          assert(item._id);
+          done();
+        });
+      })
+    })
   })
 
   describe('.remove(fn)', function(){
