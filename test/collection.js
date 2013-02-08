@@ -60,6 +60,24 @@ describe('Collection', function(){
     })
   })
 
+  describe('.load(fn)', function(){
+    it('should load the collection', function(done){
+      var col = client
+      .collection({ title: 'Bookmarks' })
+      .url('http://yahoo.com');
+
+      col.save(function(err){
+        if (err) return done(err);
+        col.load(function(err){
+          if (err) return done(err);
+          assert(col.created_at instanceof Date);
+          assert(col.updated_at instanceof Date);
+          done();
+        });
+      });
+    })
+  })
+
   describe('.remove(fn)', function(){
     it('should remove the collection', function(done){
       var col = client.collection({ title: 'Ferrets' });
