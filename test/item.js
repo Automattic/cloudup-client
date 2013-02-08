@@ -29,7 +29,6 @@ describe('Item', function(){
         var item = col.item().url('http://yahoo.com');
         col.save(function(err){
           if (err) return done(err);
-          console.log(item);
           assert(item._id);
           done();
         });
