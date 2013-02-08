@@ -12,21 +12,19 @@ $ npm install --save cloudup-client
 ## API
 
   - Cloudup
-    - [Cloudup.collection()](#cloudupcollectionoptionsobject)
-    - [Cloudup.collections()](#cloudupcollectionsfnfunction)
+    - [.collection()](#cloudupcollectionoptionsobject)
+    - [.collections()](#cloudupcollectionsfnfunction)
   - Colleciton
-    - [Collection.prototype__proto__](#collectionprototype__proto__)
-    - [Collection.item()](#collectionitemoptionsobject)
-    - [Collection.file()](#collectionfileitemstring)
-    - [Collection.toJSON()](#collectiontojson)
-    - [Collection.remove()](#collectionremovefnfunction)
-    - [Collection.save()](#collectionsavefnfunction)
+    - [.item()](#collectionitemoptionsobject)
+    - [.file()](#collectionfileitemstring)
+    - [.toJSON()](#collectiontojson)
+    - [.remove()](#collectionremovefnfunction)
+    - [.save()](#collectionsavefnfunction)
   - Item
-    - [Item.prototype__proto__](#itemprototype__proto__)
-    - [Item.toJSON()](#itemtojson)
-    - [Item.file()](#itemfilefilestring)
-    - [Item.remove()](#itemremovefnfunction)
-    - [Item.save()](#itemsavefnfunction)
+    - [.toJSON()](#itemtojson)
+    - [.file()](#itemfilefilestring)
+    - [.remove()](#itemremovefnfunction)
+    - [.save()](#itemsavefnfunction)
 
 ## Cloudup()
 
