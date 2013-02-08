@@ -9,6 +9,30 @@
 $ npm install --save cloudup-client
 ```
 
+## Example
+
+```js
+var Cloudup = require('cloudup-client');
+
+var client = Cloudup({
+  url: 'http://localhost:3000',
+  user: 'ewald',
+  pass: 'Dev1'
+});
+
+client
+.collection({ title: 'Cloudup API' })
+.file('Makefile')
+.file('package.json')
+.file('lib/client.js')
+.file('lib/collection.js')
+.file('lib/error.js')
+.file('lib/item.js')
+.save(function(){
+  console.log('upload complete');
+});
+```
+
 ## API
 
   - Cloudup

@@ -9,6 +9,18 @@ var client = new Cloudup({
 });
 
 describe('Cloudup', function(){
+  it('should work without new', function(){
+    var client = Cloudup({
+      url: 'http://localhost:3000',
+      user: 'ewald',
+      pass: 'Dev1'
+    });
+
+    assert(client.url);
+    assert(client.user);
+    assert(client.pass);
+  })
+
   describe('.collection(options)', function(){
     it('should create a new Collection', function(){
       var col = client.collection({ title: 'Something' });
