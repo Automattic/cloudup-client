@@ -1,4 +1,10 @@
 
+/**
+ * This file illustrates how you can
+ * upload several items to a collection
+ * in parallel.
+ */
+
 var Cloudup = require('..');
 var fs = require('fs');
 
