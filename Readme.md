@@ -9,6 +9,10 @@
 $ npm install --save cloudup-client
 ```
 
+## Links
+
+  - [examples](https://github.com/LearnBoost/cloudup-client/tree/master/examples)
+
 ## Example
 
 ```js
