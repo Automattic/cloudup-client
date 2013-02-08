@@ -5,7 +5,10 @@
   "keywords": [
     "cloudup",
     "api",
-    "client"
+    "client",
+    "files",
+    "upload",
+    "service"
   ],
   "dependencies": {
     "superagent": "~0.12.2",
