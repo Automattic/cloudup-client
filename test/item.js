@@ -36,6 +36,22 @@ describe('Item', function(){
     })
   })
 
+  describe('.load(fn)', function(){
+    it('should load the item', function(done){
+      var col = client.collection({ title: 'Bookmarks' });
+      var item = col.item().url('http://yahoo.com');
+      col.save(function(err){
+        if (err) return done(err);
+        item.load(function(err){
+          if (err) return done(err);
+          assert(item.created_at instanceof Date);
+          assert(item.updated_at instanceof Date);
+          done();
+        });
+      });
+    })
+  })
+
   describe('.remove(fn)', function(){
     it('should remove the item', function(done){
       var col = client.collection({ title: 'Cloudup client' });
