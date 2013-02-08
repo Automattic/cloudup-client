@@ -32,11 +32,9 @@ $ npm install --save cloudup-client
 
   Initialize a new client with the given options:
 
-```js
-- `user` basic auth username
-- `pass` basic auth password
-- `url` cloudup url, used for testing only
-```
+  - `user` basic auth username
+  - `pass` basic auth password
+  - `url` cloudup url, used for testing only
 
 ## Cloudup.collection(options:Object)
 
@@ -56,9 +54,7 @@ $ npm install --save cloudup-client
 
   Events:
 
-```js
-- `item` (item) when an item is added
-```
+  - `item` (item) when an item is added
 
 ## Collection.prototype__proto__
 
