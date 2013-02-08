@@ -35,28 +35,33 @@ client
 
 ## API
 
-  - Cloudup
-    - [.collection()](#cloudupcollectionoptionsobject)
-    - [.collections()](#cloudupcollectionsfnfunction)
-  - Colleciton
-    - [.item()](#collectionitemoptionsobject)
-    - [.file()](#collectionfileitemstring)
-    - [.toJSON()](#collectiontojson)
-    - [.remove()](#collectionremovefnfunction)
-    - [.save()](#collectionsavefnfunction)
-  - Item
-    - [.toJSON()](#itemtojson)
-    - [.file()](#itemfilefilestring)
-    - [.remove()](#itemremovefnfunction)
-    - [.save()](#itemsavefnfunction)
+  - [Cloudup()](#cloudup)
+    - [Cloudup.collection()](#cloudupcollectionoptionsobject)
+    - [Cloudup.collections()](#cloudupcollectionsfnfunction)
+  - [Collection()](#collection)
+    - [Collection.isNew()](#collectionisnew)
+    - [Collection.item()](#collectionitemoptionsobject)
+    - [Collection.file()](#collectionfilefilestring)
+    - [Collection.url()](#collectionurlurlstring)
+    - [Collection.toJSON()](#collectiontojson)
+    - [Collection.remove()](#collectionremovefnfunction)
+    - [Collection.load()](#collectionloadfnfunction)
+    - [Collection.save()](#collectionsavefnfunction)
+  - [Item()](#item)
+    - [Item.isNew()](#itemisnew)
+    - [Item.toJSON()](#itemtojson)
+    - [Item.file()](#itemfilefilestring)
+    - [Item.url()](#itemurlurlstring)
+    - [Item.remove()](#itemremovefnfunction)
+    - [Item.save()](#itemsavefnfunction)
 
-## Cloudup()
+## Cloudup
 
   Initialize a new client with the given options:
 
-  - `user` basic auth username
-  - `pass` basic auth password
-  - `url` cloudup url, used for testing only
+   - `user` basic auth username
+   - `pass` basic auth password
+   - `url` cloudup url, used for testing only
 
 ## Cloudup.collection(options:Object)
 
@@ -76,19 +81,61 @@ client
 
   Events:
 
-  - `item` (item) when an item is added
+```js
+- `item` (item) when an item is added
+```
 
-## Collection.prototype__proto__
+  Examples:
 
-  Inherit from `Emitter.prototype`.
+```js
+ client
+ .collection({ title: 'Animals' })
+ .file('path/to/maru-1.jpg')
+ .file('path/to/maru-2.jpg')
+ .url('http://farm5.static.flickr.com/4131/5001570832_c1341f609f.jpg')
+ .save(function(err){
+```
+
+
+```js
+ })
+```
+
+## Collection.isNew()
+
+  Check if the collection is new.
 
 ## Collection.item([options]:Object)
 
   Create a new item in this collection.
 
-## Collection.file(item:String)
+```js
+var item = client.item({ title: 'Maru the cat' })
+```
+
+## Collection.file(file:String)
 
   Upload `file` as an item.
+
+```js
+client
+.collection({ title: 'Images' })
+.file('maru 1.png')
+.file('maru 2.png')
+.file('maru 3.png')
+```
+
+## Collection.url(url:String)
+
+  Upload `url` as an item.
+
+```js
+client
+.collection({ title: 'Bookmarks' })
+.url('http://ign.com')
+.url('http://cuteoverload.com')
+.url('http://uglyoverload.com')
+```
 
 ## Collection.toJSON()
 
@@ -97,6 +144,10 @@ client
 ## Collection.remove([fn]:Function)
 
   Remove and invoke `fn(err)`.
+
+## Collection.load(fn:Function)
+
+  Load the collection and invoke `fn(err, col)`.
 
 ## Collection.save([fn]:Function)
 
@@ -116,9 +167,9 @@ client
 - `progress` (n) upload progress
 ```
 
-## Item.prototype__proto__
+## Item.isNew()
 
-  Inherit from `Emitter.prototype`.
+  Check if the collection is new.
 
 ## Item.toJSON()
 
@@ -127,6 +178,25 @@ client
 ## Item.file(file:String)
 
   Queue `file` for uploading.
+
+```js
+ var col = client.collection({ title: 'Animals' })
+ var item = col.item({ title: 'Simon' })
+ item.file('path/to/simon.jpg')
+ item.on('progress', function(n){
+   console.log(n)
+ });
+```
+
+## Item.url(url:String)
+
+  Queue `url` for uploading.
+
+```js
+ var col = client.collection({ title: 'Bookmarks' })
+ var item = col.item({ title: 'Ign' })
+ item.file('http://ign.com')
+```
 
 ## Item.remove([fn]:Function)
 
@@ -137,4 +207,3 @@ client
   Create the remote item
   and upload the associated
   content, invoking `fn(err)`.
-
