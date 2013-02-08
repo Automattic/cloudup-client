@@ -51,6 +51,15 @@ describe('Collection', function(){
     })
   })
 
+  describe('.item(url)', function(){
+    it('should create a url item', function(done){
+      client
+      .collection({ title: 'Bookmarks' })
+      .url('http://yahoo.com')
+      .save(done);
+    })
+  })
+
   describe('.remove(fn)', function(){
     it('should remove the collection', function(done){
       var col = client.collection({ title: 'Ferrets' });
