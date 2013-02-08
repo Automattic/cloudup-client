@@ -27,7 +27,7 @@ describe('Item', function(){
   describe('.remove(fn)', function(){
     it('should remove the item', function(done){
       var col = client.collection({ title: 'Cloudup client' });
-      var item = col.item({ title: 'Something' });
+      var item = col.item();
       item.file('lib/client.js');
       col.save(function(err){
         if (err) return done(err);
