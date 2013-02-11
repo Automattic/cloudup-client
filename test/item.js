@@ -68,6 +68,27 @@ describe('Item', function(){
     })
   })
 
+  describe('.set(obj, fn)', function(){
+    it('should update the item', function(done){
+      var col = client.collection({ title: 'Bookmarks' });
+      var item = col.item().file('package.json');
+      col.save(function(err){
+        if (err) return done(err);
+
+        item.set({ title: 'Some Bookmarks' }, function(err){
+          if (err) return done(err);
+
+          assert('Some Bookmarks' == item.title);
+          item.load(function(err){
+            if (err) return done(err);
+            assert('Some Bookmarks' == item.title);
+            done();
+          });
+        });
+      });
+    })
+  })
+
   describe('.load(fn)', function(){
     it('should load the item', function(done){
       var col = client.collection({ title: 'Bookmarks' });
