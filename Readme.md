@@ -54,6 +54,7 @@ client
   - [Item()](#item)
     - [.isNew()](#itemisnew)
     - [.toJSON()](#itemtojson)
+    - [.set()](#itemset)
     - [.file()](#itemfilefilestring)
     - [.url()](#itemurlurlstring)
     - [.remove()](#itemremovefnfunction)
@@ -178,6 +179,14 @@ client
 ## Item.toJSON()
 
   Return JSON representation.
+
+## Item.set(obj:Object, [fn]:Function)
+
+  Update item values with an object and optional callback `fn`.
+
+## Item.set(prop:String, val:String, [fn]:Function)
+
+  Update item `prop` to `val` with optional callback `fn`.
 
 ## Item.file(file:String)
 
