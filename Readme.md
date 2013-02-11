@@ -184,9 +184,19 @@ client
 
   Update item values with an object and optional callback `fn`.
 
+```js
+item.set('title', 'Something else');
+```
+
 ## Item.set(prop:String, val:String, [fn]:Function)
 
   Update item `prop` to `val` with optional callback `fn`.
+
+```js
+item.set({
+  title: 'Something else'
+});
+```
 
 ## Item.file(file:String)
 
