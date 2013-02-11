@@ -17,6 +17,46 @@ describe('Collection', function(){
     })
   })
 
+  describe('.set(prop, val, fn)', function(){
+    it('should update the item', function(done){
+      var col = client.collection({ title: 'Bookmarks' });
+      col.save(function(err){
+        if (err) return done(err);
+
+        col.set('title', 'Some Bookmarks', function(err){
+          if (err) return done(err);
+
+          assert('Some Bookmarks' == col.title);
+          col.load(function(err){
+            if (err) return done(err);
+            assert('Some Bookmarks' == col.title);
+            done();
+          });
+        });
+      });
+    })
+  })
+
+  describe('.set(obj, fn)', function(){
+    it('should update the item', function(done){
+      var col = client.collection({ title: 'Bookmarks' });
+      col.save(function(err){
+        if (err) return done(err);
+
+        col.set({ title: 'Some Bookmarks' }, function(err){
+          if (err) return done(err);
+
+          assert('Some Bookmarks' == col.title);
+          col.load(function(err){
+            if (err) return done(err);
+            assert('Some Bookmarks' == col.title);
+            done();
+          });
+        });
+      });
+    })
+  })
+
   describe('.save(fn)', function(){
     it('should save the collection', function(done){
       var col = client.collection({ title: 'Ferrets' });
