@@ -158,6 +158,24 @@ client
 
   Save and invoke `fn(err)`
 
+## Collection.set(obj:Object, [fn]:Function)
+
+  Update collection values with an object and optional callback `fn`.
+
+```js
+col.set('title', 'Something else');
+```
+
+## Collection.set(prop:String, val:String, [fn]:Function)
+
+  Update collection `prop` to `val` with optional callback `fn`.
+
+```js
+col.set({
+  title: 'Something else'
+});
+```
+
 ## Item()
 
   Initialize a new Item with the given options:
