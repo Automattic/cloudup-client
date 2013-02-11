@@ -21,6 +21,17 @@ describe('Item', function(){
           done();
         });
       })
+
+      it('should error when the file does not exist', function(done){
+        var col = client.collection({ title: 'Files' });
+        var item = col.item({ title: 'package' });
+        item.file('does-not-exist');
+        col.save(function(err){
+          assert('ENOENT' == err.code);
+          assert(err.path);
+          done();
+        });
+      })
     })
 
     describe('when a url is given', function(){
