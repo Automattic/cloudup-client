@@ -5,6 +5,7 @@ test:
 		--require should \
 		--slow 500ms \
 		--timeout 30s \
+		--bail \
 		$(ARGS)
 
 test-collections:
