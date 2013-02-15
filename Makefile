@@ -3,7 +3,7 @@ test:
 	@./node_modules/.bin/mocha \
 		--reporter spec \
 		--require should \
-		--slow 500ms \
+		--slow 1500ms \
 		--timeout 30s \
 		--bail \
 		$(ARGS)

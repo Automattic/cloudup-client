@@ -32,6 +32,15 @@ describe('Item', function(){
           done();
         });
       })
+
+      it('should populate the generated .title', function(done){
+        var col = client.collection({ title: 'Files' });
+        var item = col.item().file('package.json');
+        col.save(function(err){
+          assert('Package' == item.title);
+          done();
+        });
+      })
     })
 
     describe('when a url is given', function(){
