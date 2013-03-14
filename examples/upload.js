@@ -18,8 +18,8 @@ var col = client.collection({ title: 'Animals' });
 
 col.on('item', function(item){
   console.log('upload %s', item.title);
-  item.on('progress', function(n){
-    console.log('progress %s %d%', item.title, n);
+  item.on('progress', function(e){
+    console.log('progress %s %d%', item.title, e.percent | 0);
   });
 });
 

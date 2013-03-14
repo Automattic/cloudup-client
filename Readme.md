@@ -187,7 +187,7 @@ col.set({
   Events:
 
 ```js
-- `progress` (n) upload progress
+- `progress` (e) upload progress
 ```
 
 ## Item.isNew()
