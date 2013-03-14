@@ -10,6 +10,20 @@ var client = new Cloudup({
 
 describe('Item', function(){
   describe('.save(fn)', function(){
+    it('should emit progress events', function(done){
+      var col = client.collection({ title: 'Files' });
+      var item = col.item({ title: 'package' });
+      item.file('package.json');
+      item.on('progress', function(e){
+        assert('number' == typeof e.remaining);
+        assert('number' == typeof e.total);
+        assert('number' == typeof e.sent);
+        assert('number' == typeof e.percent);
+        done();
+      });
+      col.save();
+    })
+
     describe('when a file is given', function(){
       it('should create the item and upload the file', function(done){
         var col = client.collection({ title: 'Files' });
