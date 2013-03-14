@@ -22,6 +22,7 @@ client
 .file('lib/collection.js')
 .file('lib/error.js')
 .file('lib/item.js')
-.save(function(){
+.save(function(err){
+  if (err) throw err;
   console.log('upload complete');
 });
