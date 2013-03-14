@@ -18,6 +18,7 @@ describe('Item', function(){
         col.save(function(err){
           if (err) return done(err);
           assert(item._id);
+          assert(item.remote);
           assert('complete' == item.state);
           done();
         });
