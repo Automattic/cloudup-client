@@ -15,7 +15,8 @@
     "debug": "~0.7.2",
     "batch": "~0.3.1",
     "JSONStream": "~0.4.3",
-    "mime": "~1.2.9"
+    "mime": "~1.2.9",
+    "only": "0.0.2"
   },
   "devDependencies": {
     "mocha": "*",
