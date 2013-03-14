@@ -9,6 +9,12 @@ var client = new Cloudup({
 });
 
 describe('Collection', function(){
+  it('should emit "end"', function(done){
+    var col = client.collection({ title: 'Something' });
+    col.on('end', done);
+    col.save();
+  })
+
   describe('.item(options)', function(){
     it('should create a new Item', function(){
       var col = client.collection({ title: 'Something' });
