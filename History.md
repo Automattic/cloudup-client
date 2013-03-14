@@ -1,4 +1,11 @@
 
+0.1.0 / 2013-03-14
+==================
+
+  * add progress back
+  * add Collection#concurrency() with default of 4
+  * add direct s3 support
+
 0.0.4 / 2013-02-22
 ==================
 
