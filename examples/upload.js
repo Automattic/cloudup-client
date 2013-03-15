@@ -35,11 +35,14 @@ var c = col
   .item({ title: 'Maru 3' })
   .file('examples/files/maru-3.jpg')
 
+col.on('save', function(){
+  console.log('created http://local.cloudup.com/%s', col.uid);
+});
+
 col.save(function(){
-  console.log('created %s', col._id);
   client.collections(function(err, cols){
     if (err) throw err;
-    console.log('removing %s', cols[0]._id);
+    console.log('removing %s', cols[0].uid);
     cols[0].remove(function(err){
       if (err) throw err;
       console.log('removed');
