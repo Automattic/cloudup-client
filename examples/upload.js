@@ -23,15 +23,15 @@ col.on('item', function(item){
   });
 });
 
-var a = col
+col
   .item({ title: 'Maru 1' })
   .file('examples/files/maru-1.jpg')
 
-var b = col
+col
   .item({ title: 'Maru 2' })
   .file('examples/files/maru-2.jpg')
 
-var c = col
+col
   .item({ title: 'Maru 3' })
   .file('examples/files/maru-3.jpg')
 
