@@ -1,4 +1,17 @@
 
+0.2.0 / 2013-03-15
+==================
+
+  * add Item "save" event
+  * add Item "end" event
+  * add .filename support to Item#create()
+  * add Collection "end" event test
+  * add Collection "save" event
+  * add Collection "end" event
+  * improve .toJSON() methods
+  * change concurrency to 8
+  * remove "item uploaded" event
+
 0.1.0 / 2013-03-14
 ==================
 
