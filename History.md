@@ -1,4 +1,10 @@
 
+0.3.0 / 2013-03-15
+==================
+
+  * fix in-flight progress PATCH requests from clobbering each other. Closes #14
+  * fix progress reporting
+
 0.2.0 / 2013-03-15
 ==================
 
