@@ -41,7 +41,7 @@ describe('Item', function(){
           if (err) return done(err);
           assert(item._id);
           assert(item.remote);
-          assert('complete' == item.state);
+          assert(item.complete);
           done();
         });
       })
