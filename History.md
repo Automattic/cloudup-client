@@ -1,4 +1,13 @@
 
+0.4.0 / 2013-03-28 
+==================
+
+  * add saving of .mime
+  * add Item#thumb(file)
+  * disable http agent
+  * dont pub progress when in-flight
+  * use throttle() to pub every 250ms. Closes #16
+
 0.3.1 / 2013-03-25
 ==================
 
