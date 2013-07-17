@@ -39,211 +39,165 @@ client
 
 ## API
 
-  - [Cloudup()](#cloudup)
-    - [.collection()](#cloudupcollectionoptionsobject)
-    - [.collections()](#cloudupcollectionsfnfunction)
-  - [Collection()](#collection)
-    - [.isNew()](#collectionisnew)
-    - [.item()](#collectionitemoptionsobject)
-    - [.file()](#collectionfilefilestring)
-    - [.url()](#collectionurlurlstring)
-    - [.toJSON()](#collectiontojson)
-    - [.remove()](#collectionremovefnfunction)
-    - [.load()](#collectionloadfnfunction)
-    - [.save()](#collectionsavefnfunction)
-  - [Item()](#item)
-    - [.isNew()](#itemisnew)
-    - [.toJSON()](#itemtojson)
-    - [.set()](#itemset)
-    - [.file()](#itemfilefilestring)
-    - [.url()](#itemurlurlstring)
-    - [.remove()](#itemremovefnfunction)
-    - [.save()](#itemsavefnfunction)
-
-## Cloudup
+### Cloudup()
 
   Initialize a new client with the given options:
-
+  
    - `user` basic auth username
    - `pass` basic auth password
-   - `url` cloudup url, used for testing only
+   - `url` cloudup api url, used for testing only
 
-## Cloudup.collection(options:Object)
+#### Cloudup.stream(options:Object|String)
 
-  Create a new collection.
+  Create a new stream.
 
-## Cloudup.collections(fn:Function)
+#### Cloudup.streams(fn:Function)
 
-  Get an array of collections.
+  Get an array of streams.
 
-## Collection()
+### Stream()
 
-  Initialize a new Collection with the given options:
-
-```js
-- `title` optional collection title string
-```
-
+  Initialize a new Stream with the given options:
+  
+- `title` optional Stream title string
+  
   Events:
-
-```js
+  
 - `item` (item) when an item is added
-```
+- `save` Stream saved
+- `end` item uploads complete
 
+  
   Examples:
-
+  
 ```js
  client
- .collection({ title: 'Animals' })
+ .stream({ title: 'Animals' })
  .file('path/to/maru-1.jpg')
  .file('path/to/maru-2.jpg')
  .url('http://farm5.static.flickr.com/4131/5001570832_c1341f609f.jpg')
  .save(function(err){
-```
 
-
-```js
  })
 ```
 
-## Collection.isNew()
+#### Stream.isNew()
 
-  Check if the collection is new.
+  Check if the stream is new.
 
-## Collection.item([options]:Object)
+#### Stream.set(prop:String|Object, val:String|Function, [fn]:Function)
 
-  Create a new item in this collection.
+  Set `prop`'s `val` with optional callback `fn`.
 
+#### Stream.item([options:Object|String)
+
+  Create a new item in this stream.
+  
 ```js
 var item = client.item({ title: 'Maru the cat' })
 ```
 
-## Collection.file(file:String)
+#### Stream.file(file:String)
 
   Upload `file` as an item.
-
+  
 ```js
 client
-.collection({ title: 'Images' })
+.stream({ title: 'Images' })
 .file('maru 1.png')
 .file('maru 2.png')
 .file('maru 3.png')
 ```
 
-## Collection.url(url:String)
+#### Stream.url(url:String)
 
   Upload `url` as an item.
-
+  
 ```js
 client
-.collection({ title: 'Bookmarks' })
+.stream({ title: 'Bookmarks' })
 .url('http://ign.com')
 .url('http://cuteoverload.com')
 .url('http://uglyoverload.com')
 ```
 
-## Collection.toJSON()
+#### Stream.toJSON()
 
   Return JSON representation.
 
-## Collection.remove([fn]:Function)
+#### Stream.concurrency(n:Number)
+
+  Upload concurrency.
+
+#### Stream.remove([fn]:Function)
 
   Remove and invoke `fn(err)`.
 
-## Collection.load(fn:Function)
+#### Stream.load(fn:Function)
 
-  Load the collection and invoke `fn(err, col)`.
+  Load the stream and invoke `fn(err, stream)`.
 
-## Collection.save([fn]:Function)
+#### Stream.save([fn]:Function)
 
   Save and invoke `fn(err)`
+  
+  Emits "error" events with `(err, item)` if an item
+  fails to properly save. The callback of this method
+  is _only_ invoked with an error related to creating
+  the stream itself.
+  - [props](#props)
+  - [Item()](#item)
+  - [Item.isNew()](#itemisnew)
+  - [Item.toJSON()](#itemtojson)
+  - [Item.file()](#itemfilefilestring)
+  - [Item.url()](#itemurlurlstring)
+  - [Item.remove()](#itemremovefnfunction)
+  - [Item.set()](#itemsetpropstringobjectvalstringfunctionfnfunction)
+  - [Item.save()](#itemsavefnfunction)
 
-## Collection.set(obj:Object, [fn]:Function)
-
-  Update collection values with an object and optional callback `fn`.
-
-```js
-col.set('title', 'Something else');
-```
-
-## Collection.set(prop:String, val:String, [fn]:Function)
-
-  Update collection `prop` to `val` with optional callback `fn`.
-
-```js
-col.set({
-  title: 'Something else'
-});
-```
-
-## Item()
+### Item()
 
   Initialize a new Item with the given options:
+  
+ - `title` optional Item title string
 
-```js
-- `title` optional Item title string
-```
+#### Item.isNew()
 
-  Events:
+  Check if the stream is new.
 
-```js
-- `progress` (e) upload progress
-```
-
-## Item.isNew()
-
-  Check if the collection is new.
-
-## Item.toJSON()
+#### Item.toJSON()
 
   Return JSON representation.
 
-## Item.set(obj:Object, [fn]:Function)
-
-  Update item values with an object and optional callback `fn`.
-
-```js
-item.set('title', 'Something else');
-```
-
-## Item.set(prop:String, val:String, [fn]:Function)
-
-  Update item `prop` to `val` with optional callback `fn`.
-
-```js
-item.set({
-  title: 'Something else'
-});
-```
-
-## Item.file(file:String)
+#### Item.file(file:String)
 
   Queue `file` for uploading.
-
+  
 ```js
- var col = client.collection({ title: 'Animals' })
- var item = col.item({ title: 'Simon' })
+ var stream = client.stream({ title: 'Animals' })
+ var item = stream.item({ title: 'Simon' })
  item.file('path/to/simon.jpg')
- item.on('progress', function(n){
-   console.log(n)
- });
 ```
 
-## Item.url(url:String)
+#### Item.url(url:String)
 
   Queue `url` for uploading.
-
+  
 ```js
- var col = client.collection({ title: 'Bookmarks' })
- var item = col.item({ title: 'Ign' })
+ var stream = client.stream({ title: 'Bookmarks' })
+ var item = stream.item({ title: 'Ign' })
  item.file('http://ign.com')
 ```
 
-## Item.remove([fn]:Function)
+#### Item.remove([fn]:Function)
 
   Remove and invoke `fn(err)`.
 
-## Item.save(fn:Function)
+#### Item.set(prop:String|Object, val:String|Function, [fn]:Function)
+
+  Set `prop`'s `val` with optional callback `fn`.
+
+#### Item.save(fn:Function)
 
   Create the remote item
   and upload the associated
