@@ -61,9 +61,6 @@ client
   
 - `title` optional Stream title string
   
-  
-  Examples:
-  
 ```js
  client
  .stream({ title: 'Animals' })
@@ -193,3 +190,4 @@ client
   Create the remote item
   and upload the associated
   content, invoking `fn(err)`.
+
