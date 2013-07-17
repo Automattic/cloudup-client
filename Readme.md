@@ -61,12 +61,6 @@ client
   
 - `title` optional Stream title string
   
-  Events:
-  
-- `item` (item) when an item is added
-- `save` Stream saved
-- `end` item uploads complete
-
   
   Examples:
   
@@ -80,6 +74,12 @@ client
 
  })
 ```
+
+#### Events:
+  
+- `item` (item) when an item is added
+- `save` Stream saved
+- `end` item uploads complete
 
 #### Stream.isNew()
 
@@ -145,15 +145,6 @@ client
   fails to properly save. The callback of this method
   is _only_ invoked with an error related to creating
   the stream itself.
-  - [props](#props)
-  - [Item()](#item)
-  - [Item.isNew()](#itemisnew)
-  - [Item.toJSON()](#itemtojson)
-  - [Item.file()](#itemfilefilestring)
-  - [Item.url()](#itemurlurlstring)
-  - [Item.remove()](#itemremovefnfunction)
-  - [Item.set()](#itemsetpropstringobjectvalstringfunctionfnfunction)
-  - [Item.save()](#itemsavefnfunction)
 
 ### Item()
 
