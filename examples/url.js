@@ -8,17 +8,17 @@ var Cloudup = require('..');
 var fs = require('fs');
 
 var client = new Cloudup({
-  url: 'http://localhost:3000',
-  user: 'ewald',
+  url: 'http://localhost:3030',
+  user: 'tobi',
   pass: 'Dev1'
 });
 
 client
-.collection({ title: 'Bookmarks' })
+.stream({ title: 'Bookmarks' })
 .url('http://ign.com')
 .url('http://github.com')
 .url('http://cuteoverload.com')
 .save(function(err){
   if (err) throw err;
-  console.log('created collection');
+  console.log('created stream');
 });

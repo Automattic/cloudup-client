@@ -1,7 +1,7 @@
 
 /**
  * This file illustrates how you can
- * load collections and items using
+ * load stream and items using
  * their ids.
  */
 
@@ -9,28 +9,27 @@ var Cloudup = require('..');
 var fs = require('fs');
 
 var client = new Cloudup({
-  url: 'http://localhost:3000',
-  user: 'ewald',
+  url: 'http://localhost:3030',
+  user: 'tobi',
   pass: 'Dev1'
 });
 
-var col = client.collection({ title: 'Files' });
+var stream = client.stream({ title: 'Files' });
 
-var item = col
+var item = stream
   .item({ title: 'Configuration' })
   .file('package.json')
 
-console.log('saving');
-col.save(function(){
-  console.log('created %s', col._id);
-
-  col = client.collection({ _id: col._id });
-  col.load(function(){
-    console.log('loaded %s', col.title);
-    var item = col.item({ _id: col.items[0] });
+stream.save(function(){
+  stream = client.stream(stream.id);
+  stream.load(function(){
+    console.log('stream:');
+    console.log(stream.toJSON());
+    console.log('\n');
+    var item = stream.item(stream.items[0]);
     item.load(function(){
       console.log('item:');
-      console.log(item);
+      console.log(item.toJSON());
     });
   });
 });

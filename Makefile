@@ -8,15 +8,15 @@ test:
 		--bail \
 		$(ARGS)
 
-test-collections:
-	@make test ARGS=test/collection.js
+test-streams:
+	@make test ARGS=test/stream.js
 
 test-items:
 	@make test ARGS=test/item.js
 
 docs:
 	@dox --api < lib/client.js
-	@dox --api < lib/collection.js
+	@dox --api < lib/stream.js
 	@dox --api < lib/item.js
 
-.PHONY: test test-collections test-items docs
+.PHONY: test test-streams test-items docs

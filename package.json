@@ -12,8 +12,8 @@
   ],
   "dependencies": {
     "superagent": "0.13.0",
-    "debug": "~0.7.2",
-    "batch": "~0.3.1",
+    "debug": "*",
+    "batch": "0.4.0",
     "JSONStream": "~0.4.3",
     "mime": "~1.2.9",
     "only": "0.0.2",

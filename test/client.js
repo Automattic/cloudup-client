@@ -1,9 +1,9 @@
 
-var Cloudup = require('..')
-  , assert = require('better-assert');
+var Cloudup = require('..');
+var assert = require('better-assert');
 
 var client = new Cloudup({
-  url: 'http://localhost:3000',
+  url: 'http://localhost:3030',
   user: 'ewald',
   pass: 'Dev1'
 });
@@ -11,7 +11,7 @@ var client = new Cloudup({
 describe('Cloudup', function(){
   it('should work without new', function(){
     var client = Cloudup({
-      url: 'http://localhost:3000',
+      url: 'http://localhost:3030',
       user: 'ewald',
       pass: 'Dev1'
     });
@@ -21,30 +21,36 @@ describe('Cloudup', function(){
     assert(client.pass);
   })
 
-  describe('.collection(options)', function(){
-    it('should create a new Collection', function(){
-      var col = client.collection({ title: 'Something' });
-      col.constructor.name.should.equal('Collection');
+  describe('.stream(id)', function(){
+    it('should create a new Stream', function(){
+      var stream = client.stream('123');
+      assert(stream.id == '123');
     })
   })
 
-  describe('.collections(fn)', function(){
-    it('should respond with an array of collections', function(done){
+  describe('.stream(options)', function(){
+    it('should create a new Stream', function(){
+      var stream = client.stream({ title: 'Something' });
+      stream.constructor.name.should.equal('Stream');
+    })
+  })
+
+  describe('.streams(fn)', function(){
+    it('should respond with an array of streams', function(done){
       client
-      .collection({ title: 'Animals' })
+      .stream({ title: 'Animals' })
       .save(function(err){
         if (err) return done(err);
-        client.collections(function(err, cols){
+        client.streams(function(err, streams){
           if (err) return done(err);
-          assert(Array.isArray(cols));
-          var col = cols.shift();
-          assert('Collection' == col.constructor.name);
-          assert(col._id);
-          assert(col.created_at);
-          assert(col.updated_at);
-          assert(col.title);
-          assert('number' == typeof col.views);
-          assert(Array.isArray(col.items));
+          assert(Array.isArray(streams));
+          var stream = streams.shift();
+          assert('Stream' == stream.constructor.name);
+          assert(stream.id);
+          assert(stream.created_at);
+          assert(stream.updated_at);
+          assert(stream.title);
+          assert(Array.isArray(stream.items));
           done();
         });
       });

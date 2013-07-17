@@ -1,9 +1,9 @@
 
-var Cloudup = require('..')
-  , assert = require('better-assert');
+var Cloudup = require('..');
+var assert = require('better-assert');
 
 var client = new Cloudup({
-  url: 'http://localhost:3000',
+  url: 'http://localhost:3030',
   user: 'ewald',
   pass: 'Dev1'
 });
@@ -11,8 +11,8 @@ var client = new Cloudup({
 describe('Item', function(){
   describe('.save(fn)', function(){
     it('should emit "progress" events', function(done){
-      var col = client.collection({ title: 'Files' });
-      var item = col.item({ title: 'package' });
+      var stream = client.stream({ title: 'Files' });
+      var item = stream.item({ title: 'package' });
       item.file('package.json');
       item.on('progress', function(e){
         assert('number' == typeof e.remaining);
@@ -21,46 +21,55 @@ describe('Item', function(){
         assert('number' == typeof e.percent);
         done();
       });
-      col.save();
+      stream.save();
     })
 
     it('should emit "end"', function(done){
-      var col = client.collection({ title: 'Files' });
-      var item = col.item({ title: 'package' });
+      var stream = client.stream({ title: 'Files' });
+      var item = stream.item({ title: 'package' });
       item.file('package.json');
       item.on('end', done);
-      col.save();
+      stream.save();
     })
 
     describe('when a file is given', function(){
       it('should create the item and upload the file', function(done){
-        var col = client.collection({ title: 'Files' });
-        var item = col.item({ title: 'package' });
+        var stream = client.stream({ title: 'Files' });
+        var item = stream.item({ title: 'package' });
         item.file('package.json');
-        col.save(function(err){
+        stream.save(function(err){
           if (err) return done(err);
-          assert(item._id);
+          assert(item.id);
           assert(item.remote);
           assert(item.complete);
           done();
         });
       })
 
-      it('should error when the file does not exist', function(done){
-        var col = client.collection({ title: 'Files' });
-        var item = col.item({ title: 'package' });
+      it('should "error" when the file does not exist', function(done){
+        var stream = client.stream({ title: 'Files' });
+        var item = stream.item({ title: 'package' });
+        var called = 0;
+        
         item.file('does-not-exist');
-        col.save(function(err){
+
+        stream.on('error', function(err){
           assert('ENOENT' == err.code);
           assert(err.path);
+          called++;
+        });
+
+        stream.save(function(err){
+          if (err) return done(err);
+          assert(1 == called);
           done();
         });
       })
 
       it('should populate the generated .title', function(done){
-        var col = client.collection({ title: 'Files' });
-        var item = col.item().file('package.json');
-        col.save(function(err){
+        var stream = client.stream({ title: 'Files' });
+        var item = stream.item().file('package.json');
+        stream.save(function(err){
           assert('Package' == item.title);
           done();
         });
@@ -69,11 +78,11 @@ describe('Item', function(){
 
     describe('when a url is given', function(){
       it('should create the item', function(done){
-        var col = client.collection({ title: 'Bookmarks' });
-        var item = col.item().url('http://yahoo.com');
-        col.save(function(err){
+        var stream = client.stream({ title: 'Bookmarks' });
+        var item = stream.item().url('http://yahoo.com');
+        stream.save(function(err){
           if (err) return done(err);
-          assert(item._id);
+          assert(item.id);
           done();
         });
       })
@@ -82,9 +91,9 @@ describe('Item', function(){
 
   describe('.set(prop, val, fn)', function(){
     it('should update the item', function(done){
-      var col = client.collection({ title: 'Bookmarks' });
-      var item = col.item().file('package.json');
-      col.save(function(err){
+      var stream = client.stream({ title: 'Bookmarks' });
+      var item = stream.item().file('package.json');
+      stream.save(function(err){
         if (err) return done(err);
 
         item.set('title', 'Some Bookmarks', function(err){
@@ -103,9 +112,9 @@ describe('Item', function(){
 
   describe('.set(obj, fn)', function(){
     it('should update the item', function(done){
-      var col = client.collection({ title: 'Bookmarks' });
-      var item = col.item().file('package.json');
-      col.save(function(err){
+      var stream = client.stream({ title: 'Bookmarks' });
+      var item = stream.item().file('package.json');
+      stream.save(function(err){
         if (err) return done(err);
 
         item.set({ title: 'Some Bookmarks' }, function(err){
@@ -124,9 +133,9 @@ describe('Item', function(){
 
   describe('.load(fn)', function(){
     it('should load the item', function(done){
-      var col = client.collection({ title: 'Bookmarks' });
-      var item = col.item().url('http://yahoo.com');
-      col.save(function(err){
+      var stream = client.stream({ title: 'Bookmarks' });
+      var item = stream.item().url('http://yahoo.com');
+      stream.save(function(err){
         if (err) return done(err);
         item.load(function(err){
           if (err) return done(err);
@@ -140,10 +149,10 @@ describe('Item', function(){
 
   describe('.remove(fn)', function(){
     it('should remove the item', function(done){
-      var col = client.collection({ title: 'Cloudup client' });
-      var item = col.item();
+      var stream = client.stream({ title: 'Cloudup client' });
+      var item = stream.item();
       item.file('lib/client.js');
-      col.save(function(err){
+      stream.save(function(err){
         if (err) return done(err);
         item.remove(done);
       });
