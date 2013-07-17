@@ -43,10 +43,10 @@ stream.save(function(){
   client.streams(function(err, streams){
     if (err) throw err;
     console.log('done');
-    //console.log('removing %s', streams[0].uid);
-    //streams[0].remove(function(err){
-    //  if (err) throw err;
-    //  console.log('removed');
-    //});
+    console.log('removing %s', streams[0].id);
+    streams[0].remove(function(err){
+      if (err) throw err;
+      console.log('removed');
+    });
   });
 });
