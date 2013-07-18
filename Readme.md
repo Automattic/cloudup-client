@@ -55,6 +55,12 @@ client
 
   Get an array of streams.
 
+#### Cloudup.streams(options, fn:Function)
+
+  Get an array of streams with the given `options`:
+
+  - `title` filter by title
+
 ### Stream()
 
   Initialize a new Stream with the given options:
