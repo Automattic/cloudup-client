@@ -17,7 +17,8 @@
     "JSONStream": "~0.4.3",
     "mime": "~1.2.9",
     "only": "0.0.2",
-    "throttleit": "0.0.2"
+    "throttleit": "0.0.2",
+    "uid2": "0.0.3"
   },
   "devDependencies": {
     "mocha": "*",
