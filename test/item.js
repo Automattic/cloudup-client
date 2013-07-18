@@ -1,5 +1,6 @@
 
 var Cloudup = require('..');
+var fs = require('fs');
 var assert = require('better-assert');
 
 var client = new Cloudup({
@@ -42,6 +43,35 @@ describe('Item', function(){
           assert(item.id);
           assert(item.remote);
           assert(item.complete);
+          done();
+        });
+      })
+
+      it('should "error" when the file is too large', function(done){
+        var stream = client.stream({ title: 'Files' });
+        var item = stream.item({ title: 'package' });
+        var called = 0;
+
+        var _ = fs.statSync;
+        fs.statSync = function(path){
+          return {
+            size: 409715200
+          }
+        };
+        
+        item.file('package.json');
+
+        stream.on('error', function(err){
+          assert('EFBIG' == err.code);
+          assert(209715200 == err.limit);
+          assert(err.path);
+          called++;
+        });
+
+        stream.save(function(err){
+          if (err) return done(err);
+          assert(1 == called);
+          fs.statSync = _;
           done();
         });
       })
