@@ -11,7 +11,7 @@
     "service"
   ],
   "dependencies": {
-    "superagent": "0.13.0",
+    "superagent": "0.15.4",
     "debug": "*",
     "batch": "0.4.0",
     "JSONStream": "~0.4.3",

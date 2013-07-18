@@ -38,6 +38,11 @@
       "type": "number",
       "description": "item upload progress"
     },
+    "url": {
+      "type": "string",
+      "description": "cloudup item url",
+      "readonly": true
+    },
     "remote_url": {
       "type": "string",
       "description": "remote url to the original item upload",
