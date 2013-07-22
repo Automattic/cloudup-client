@@ -114,9 +114,7 @@ describe('Stream', function(){
 
   describe('.load(fn)', function(){
     it('should load the stream', function(done){
-      var stream = client
-      .stream({ title: 'Bookmarks' })
-      .link('http://yahoo.com');
+      var stream = client.stream({ title: 'Bookmarks' });
 
       stream.save(function(err){
         if (err) return done(err);
