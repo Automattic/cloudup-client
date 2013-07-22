@@ -72,7 +72,7 @@ client
  .stream({ title: 'Animals' })
  .file('path/to/maru-1.jpg')
  .file('path/to/maru-2.jpg')
- .url('http://farm5.static.flickr.com/4131/5001570832_c1341f609f.jpg')
+ .link('http://farm5.static.flickr.com/4131/5001570832_c1341f609f.jpg')
  .save(function(err){
 
  })
@@ -112,16 +112,16 @@ client
 .file('maru 3.png')
 ```
 
-#### Stream.url(url:String)
+#### Stream.link(url:String)
 
   Upload `url` as an item.
   
 ```js
 client
 .stream({ title: 'Bookmarks' })
-.url('http://ign.com')
-.url('http://cuteoverload.com')
-.url('http://uglyoverload.com')
+.link('http://ign.com')
+.link('http://cuteoverload.com')
+.link('http://uglyoverload.com')
 ```
 
 #### Stream.toJSON()
@@ -173,7 +173,7 @@ client
  item.file('path/to/simon.jpg')
 ```
 
-#### Item.url(url:String)
+#### Item.link(url:String)
 
   Queue `url` for uploading.
   

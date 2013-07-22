@@ -107,7 +107,7 @@ describe('Stream', function(){
     it('should create a url item', function(done){
       client
       .stream({ title: 'Bookmarks' })
-      .url('http://yahoo.com')
+      .link('http://yahoo.com')
       .save(done);
     })
   })
@@ -116,7 +116,7 @@ describe('Stream', function(){
     it('should load the stream', function(done){
       var stream = client
       .stream({ title: 'Bookmarks' })
-      .url('http://yahoo.com');
+      .link('http://yahoo.com');
 
       stream.save(function(err){
         if (err) return done(err);

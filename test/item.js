@@ -109,7 +109,7 @@ describe('Item', function(){
     describe('when a url is given', function(){
       it('should create the item', function(done){
         var stream = client.stream({ title: 'Bookmarks' });
-        var item = stream.item().url('http://yahoo.com');
+        var item = stream.item().link('http://yahoo.com');
         stream.save(function(err){
           if (err) return done(err);
           assert(item.id);
@@ -164,7 +164,7 @@ describe('Item', function(){
   describe('.load(fn)', function(){
     it('should load the item', function(done){
       var stream = client.stream({ title: 'Bookmarks' });
-      var item = stream.item().url('http://yahoo.com');
+      var item = stream.item().link('http://yahoo.com');
       stream.save(function(err){
         if (err) return done(err);
         item.load(function(err){
