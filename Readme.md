@@ -74,7 +74,7 @@ stream.load(function(){
 
   - `title` filter by title
 
-### Stream()
+### Stream(id:String|options:Object)
 
   Initialize a new Stream with the given options:
   
@@ -90,6 +90,8 @@ stream.load(function(){
 
  })
 ```
+
+  Alternatively pass the stream's `id` and invoke `.load()`.
 
 #### Events:
   
@@ -171,11 +173,14 @@ client
   is _only_ invoked with an error related to creating
   the stream itself.
 
-### Item()
+### Item(id:String|options:Object)
 
   Initialize a new Item with the given options:
   
  - `title` optional Item title string
+ - `filename` optional filename for `.file()`
+
+  Alternatively pass the item's `id` and invoke `.load()`.
 
 #### Item.isNew()
 
