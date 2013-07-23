@@ -47,6 +47,20 @@ describe('Item', function(){
         });
       })
 
+      it('should allow overriding the .filename', function(done){
+        var stream = client.stream({ title: 'Files' });
+        var item = stream.item({ title: 'package', filename: 'pkg.json' });
+        item.file('package.json');
+        stream.save(function(err){
+          if (err) return done(err);
+          item = stream.item(item.id);
+          item.load(function(){
+            assert('pkg.json' == item.filename);
+            done();
+          });
+        });
+      })
+
       it('should "error" when the file is too large', function(done){
         var stream = client.stream({ title: 'Files' });
         var item = stream.item({ title: 'package' });
