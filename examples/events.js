@@ -16,7 +16,20 @@ var client = new Cloudup({
 
 var events = client.events();
 
-events.subscribe('cNBjUb1Z6Eo');
+var stream = client.stream('cNBjUb1Z6Eo');
+stream.subscribe();
+
+stream.on('op', function(type, key, val){
+  console.log('%s %s %s', type, key, val);
+});
+
+stream.on('set', function(key, val){
+  console.log('set %s to %s', key, val);
+});
+
+stream.on('title', function(str){
+  console.log('set title to "%s"', str);
+});
 
 //var photos = client.stream({ title: 'Maru' });
 //
