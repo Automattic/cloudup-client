@@ -25,7 +25,7 @@ var client = Cloudup({
 });
 
 client
-.collection({ title: 'Cloudup API' })
+.stream({ title: 'Cloudup API' })
 .file('Makefile')
 .file('package.json')
 .file('lib/client.js')
@@ -50,6 +50,19 @@ client
 #### Cloudup.stream(options:Object|String)
 
   Create a new stream.
+
+```js
+var stream = client.stream({ title: 'Photos' });
+```
+
+  Or load an existing stream with its `.id`:
+
+```js
+var stream = client.stream('cyswccQQZkw');
+stream.load(function(){
+  console.log(stream);
+});
+```
 
 #### Cloudup.streams(fn:Function)
 
@@ -97,29 +110,38 @@ client
   Create a new item in this stream.
   
 ```js
-var item = client.item({ title: 'Maru the cat' })
+var item = stream.item({ title: 'Maru the cat' })
 ```
 
-#### Stream.file(file:String)
+  Or load an existing item with its `.id`:
+
+```js
+var item = stream.item('iyswccQQZkw');
+item.load(function(){
+  console.log(item);
+});
+```
+
+#### Stream.file(file:String, [options:Object])
 
   Upload `file` as an item.
   
 ```js
 client
 .stream({ title: 'Images' })
-.file('maru 1.png')
-.file('maru 2.png')
+.file('maru 1.png', { filename: 'Maru.png', })
+.file('maru 2.png', { title: 'Awesome Maru' })
 .file('maru 3.png')
 ```
 
-#### Stream.link(url:String)
+#### Stream.link(url:String, [options:Object])
 
   Upload `url` as an item.
   
 ```js
 client
 .stream({ title: 'Bookmarks' })
-.link('http://ign.com')
+.link('http://ign.com', { title: 'IGN' })
 .link('http://cuteoverload.com')
 .link('http://uglyoverload.com')
 ```
