@@ -15,25 +15,28 @@ var client = new Cloudup({
 });
 
 var events = client.events();
-var photos = client.stream({ title: 'Maru' });
 
-photos.save(function(err){
-  if (err) throw err;
+events.subscribe('cNBjUb1Z6Eo');
 
-  console.log('created %s', photos.id);
-  events.subscribe(photos);
-
-  events.on('connect', function(){
-    console.log('subscribed to events');
-
-    photos
-    .file('examples/files/maru-1.jpg')
-    .file('examples/files/maru-2.jpg')
-    .file('examples/files/maru-3.jpg');
-
-    photos.save(function(err){
-      if (err) throw err;
-      console.log('saved');
-    });
-  });
-});
+//var photos = client.stream({ title: 'Maru' });
+//
+//photos.save(function(err){
+//  if (err) throw err;
+//
+//  console.log('created %s', photos.id);
+//  events.subscribe(photos);
+//
+//  events.on('connect', function(){
+//    console.log('subscribed to events');
+//
+//    photos
+//    .file('examples/files/maru-1.jpg')
+//    .file('examples/files/maru-2.jpg')
+//    .file('examples/files/maru-3.jpg');
+//
+//    photos.save(function(err){
+//      if (err) throw err;
+//      console.log('saved');
+//    });
+//  });
+//});
