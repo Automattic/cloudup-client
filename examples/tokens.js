@@ -10,20 +10,20 @@ var fs = require('fs');
 
 var client = new Cloudup({
   url: 'http://localhost:3030',
+  cloudupUrl: 'http://localhost:3000',
   user: 'tobi',
   pass: 'Dev1'
 });
 
-client.registerApplication({ name: 'My app' }, function(err, app){
+// pass your app id
+
+client.requestToken('ah5Oa7F3hT8', function(err, tok){
   if (err) throw err;
-  
-  console.log('created token %s', app.token);
-  console.log('authenticating through %s', app.name);
+  console.log('created token %s', tok);
+
   var client = new Cloudup({
     url: 'http://localhost:3030',
-    fingerprint: app.fingerprint,
-    token: app.token,
-    user: 'tobi'
+    token: tok
   });
 
   client.streams(function(err, streams){
