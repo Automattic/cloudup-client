@@ -45,7 +45,35 @@ client
   
    - `user` basic auth username
    - `pass` basic auth password
+   - `token` auth token
    - `url` cloudup api url, used for testing only
+
+#### Cloudup.requestToken(appId:String, fn:Function)
+
+  Request an auth token with the `appId` provided by Cloudup
+  upon app registration. This prevents the need to store a user's
+  username and password.
+
+```js
+var client = new Cloudup({
+  user: 'tobi',
+  pass: 'Dev1'
+});
+
+client.requestToken('ah5Oa7F3hT8', function(err, tok){
+  if (err) throw err;
+
+  var client = new Cloudup({ token: tok });
+
+  client.streams(function(err, streams){
+    if (err) throw err;
+    console.log('streams:');
+    streams.forEach(function(stream){
+      console.log('  - %s', stream.title);
+    });
+  });
+});
+```
 
 #### Cloudup.stream(options:Object|String)
 
