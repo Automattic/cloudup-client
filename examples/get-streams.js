@@ -14,14 +14,14 @@ var client = new Cloudup({
   pass: 'Dev1'
 });
 
-// all streams, paginated
+// all streams, all 'pages'
 
 client.streams(function(err, streams){
   if (err) throw err;
   console.log(streams);
 });
 
-// all streams, paginated, matching a given title
+// all streams, all 'pages', matching a given title
 
 client.streams({ title: 'Photos' }, function(err, streams){
 

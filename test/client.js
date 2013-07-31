@@ -47,10 +47,10 @@ describe('Cloudup', function(){
           var stream = streams.shift();
           assert('Stream' == stream.constructor.name);
           assert(stream.id);
-          assert(stream.created_at);
-          assert(stream.updated_at);
+          assert(stream.created_at instanceof Date);
+          assert(stream.updated_at instanceof Date);
           assert(stream.title);
-          assert(Array.isArray(stream.items));
+          assert(Array.isArray(stream.item_ids));
           done();
         });
       });
