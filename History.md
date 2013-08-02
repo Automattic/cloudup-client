@@ -1,4 +1,19 @@
 
+0.5.0 / 2013-08-02 
+==================
+
+ * add `Stream#items(fn)`
+ * add oauth token support
+ * add support for passing options to `.link()`
+ * add new item.thumb() implementation based on pre-signed urls
+ * add support for passing options to `.file()`
+ * add .useragent option
+ * add capping of filesize. Closes #25
+ * add .streams(options, fn) support
+ * rename .url() to .link() to avoid prop collision
+ * change ._id -> .id
+ * fix clobbering of .url from api
+
 0.4.0 / 2013-03-28 
 ==================
 
