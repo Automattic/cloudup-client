@@ -46,7 +46,7 @@ client
    - `user` basic auth username
    - `pass` basic auth password
    - `token` auth token
-   - `url` cloudup api url, used for testing only
+   - `useragent` user-agent name
 
 #### Cloudup.requestToken(appId:String, fn:Function)
 
