@@ -246,6 +246,12 @@ client
 
   Set `prop`'s `val` with optional callback `fn`.
 
+#### Item.thumb(path:String, fn:Function)
+
+  Queue thumbnail `path` for the next `.save()`, or 
+  upload immediately and invoke `fn(err)`. When a callback `fn`
+  is given the item __MUST__ have already been saved.
+
 #### Item.save(fn:Function)
 
   Create the remote item
