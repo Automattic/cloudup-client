@@ -1,4 +1,11 @@
 
+0.6.0 / 2013-08-20 
+==================
+
+ * add s3 policy support
+ * add `Item#thumb(path)` queueing
+ * add more to user-agent
+
 0.5.0 / 2013-08-02 
 ==================
 
@@ -68,10 +75,4 @@
   * add `Item#set(prop, val, fn)`
   * change `Item#set()` callback to be optional
   * change `.queue` to `.items` and make it public
-  * remove Item progress events for now
-  * fix superagent ENOENT handling. Closes #2
-
-0.0.2 / 2013-02-08
-==================
-
-  * make item .trackProgress() conditional
+  * remov
