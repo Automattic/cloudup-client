@@ -10,12 +10,24 @@ var client = new Cloudup({
 });
 
 describe('Item', function(){
+  describe('.thumb(path, fn)', function(){
+    it('should work', function(done){
+      var stream = client.stream({ title: 'Files' });
+      var item = stream.item({ title: 'package' });
+      item.file('package.json');
+      item.save(function(err){
+        if (err) return done(err);
+        item.thumb('examples/files/maru-1.jpg', done);
+      });
+    })
+  })
+
   describe('.save(fn)', function(){
     it('should emit "progress" events', function(done){
       var stream = client.stream({ title: 'Files' });
       var item = stream.item({ title: 'package' });
       item.file('package.json');
-      item.on('progress', function(e){
+      item.once('progress', function(e){
         assert('number' == typeof e.remaining);
         assert('number' == typeof e.total);
         assert('number' == typeof e.sent);
