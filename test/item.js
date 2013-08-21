@@ -20,6 +20,23 @@ describe('Item', function(){
         item.thumb('examples/files/maru-1.jpg', done);
       });
     })
+
+    it('should add dimensions', function(done){
+      var stream = client.stream({ title: 'Files' });
+      var item = stream.item({ title: 'Maru' });
+      item.file('package.json');
+      item.save(function(err){
+        if (err) return done(err);
+
+        item.thumb('examples/files/maru-2.jpg', function(){
+          item.load(function(){
+            assert(480 == item.thumb_width);
+            assert(360 == item.thumb_height);
+            done();
+          });
+        });
+      });
+    })
   })
 
   describe('.save(fn)', function(){
