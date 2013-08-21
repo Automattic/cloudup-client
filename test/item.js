@@ -46,6 +46,20 @@ describe('Item', function(){
     })
 
     describe('when a file is given', function(){
+      describe('and is an image', function(){
+        it('should send dimensions', function(done){
+          var stream = client.stream({ title: 'Files' });
+          var item = stream.item({ title: 'Maru' });
+          item.file('examples/files/maru-2.jpg');
+          item.save(function(err){
+            if (err) return done(err);
+            assert(480 == item.width);
+            assert(360 == item.height);
+            done();
+          });
+        })
+      })
+
       it('should create the item and upload the file', function(done){
         var stream = client.stream({ title: 'Files' });
         var item = stream.item({ title: 'package' });

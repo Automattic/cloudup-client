@@ -20,7 +20,10 @@
     "throttleit": "0.0.2",
     "uid2": "0.0.3",
     "form-data": "~0.1.0",
-    "cloudup-ua": "0.0.1"
+    "cloudup-ua": "0.0.1",
+    "png-size": "~0.1.0",
+    "jpeg-size": "0.0.1",
+    "head": "~1.0.0"
   },
   "devDependencies": {
     "mocha": "*",
