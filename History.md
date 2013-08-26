@@ -1,4 +1,14 @@
 
+0.7.0 / 2013-08-26 
+==================
+
+ * add /1 to api url
+ * add thumb dimensions. Closes #37
+ * add image dimensions. Closes #36
+ * add item.size
+ * add saving of .thumb
+ * fix Item#thumb() s3 key
+
 0.6.0 / 2013-08-20 
 ==================
 
