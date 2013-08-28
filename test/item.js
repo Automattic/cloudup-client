@@ -10,7 +10,7 @@ var client = new Cloudup({
 });
 
 describe('Item', function(){
-  describe('.thumb(path, fn)', function(){
+  describe('.thumb(path, [fn])', function(){
     it('should work', function(done){
       var stream = client.stream({ title: 'Files' });
       var item = stream.item({ title: 'package' });
@@ -36,6 +36,22 @@ describe('Item', function(){
           });
         });
       });
+    })
+
+    it('should queue callback', function(done){
+      var stream = client.stream({ title: 'Files' });
+      var item = stream.item({ title: 'Maru' });
+      item.file('package.json');
+
+      item.thumb('examples/files/maru-2.jpg', function(){
+        item.load(function(){
+          assert(480 == item.thumb_width);
+          assert(360 == item.thumb_height);
+          done();
+        });
+      });
+
+      item.save(function(){});
     })
   })
 
