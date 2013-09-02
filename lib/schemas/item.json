@@ -1,0 +1,171 @@
+{
+  "name": "item",
+  "description": "Cloudup item",
+  "version": "0.0.1",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "unique item identifier",
+      "readonly": true,
+      "field": "uid"
+    },
+    "title": {
+      "type": "string",
+      "description": "item title",
+      "max length": 512
+    },
+    "stream_id": {
+      "type": "string",
+      "description": "associated stream id",
+      "field": "collection_id"
+    },
+    "type": {
+      "type": "string",
+      "description": "item type",
+      "readonly": true,
+      "enum": ["code", "file", "embed", "url", "article", "unknown"]
+    },
+    "filename": {
+      "type": "string",
+      "description": "item filename",
+      "max length": 512
+    },
+    "size": {
+      "type": "number",
+      "description": "file size in bytes"
+    },
+    "progress": {
+      "type": "number",
+      "description": "item upload progress"
+    },
+    "url": {
+      "type": "string",
+      "description": "cloudup item url",
+      "readonly": true
+    },
+    "remote_url": {
+      "type": "string",
+      "description": "remote url to the original item upload",
+      "readonly": true,
+      "computed": ["remote"]
+    },
+    "mime": {
+      "type": "string",
+      "description": "item mime type",
+      "max length": 128
+    },
+    "width": {
+      "type": "number",
+      "description": "item image width"
+    },
+    "height": {
+      "type": "number",
+      "description": "item image height"
+    },
+    "exif": {
+      "type": "object",
+      "description": "EXIF tags",
+      "readonly": true
+    },
+    "thumbs": {
+      "type": "object",
+      "description": "item thumbnails",
+      "readonly": true
+    },
+    "thumb_url": {
+      "type": "string",
+      "description": "initial item thumbnail",
+      "readonly": true,
+      "computed": ["thumb"]
+    },
+    "thumb_width": {
+      "type": "number",
+      "description": "item thumbnail image width"
+    },
+    "thumb_height": {
+      "type": "number",
+      "description": "item thumbnail image height"
+    },
+    "transcode_state": {
+      "type": "string",
+      "description": "video transcoding job state",
+      "readonly": true,
+      "enum": ["submitted", "progressing", "complete", "canceled", "error"]
+    },
+    "transcode_url": {
+      "type": "string",
+      "description": "remote url to the transcoded video file",
+      "readonly": true,
+      "computed": ["transcode_remote"]
+    },
+    "html": {
+      "type": "string",
+      "description": "html representation",
+      "readonly": true
+    },
+    "html_thumb": {
+      "type": "string",
+      "description": "html 'thumbnail' snippet",
+      "readonly": true
+    },
+    "creator_id": {
+      "type": "string",
+      "description": "item owner's identifier",
+      "readonly": true
+    },
+    "created_at": {
+      "type": "date",
+      "description": "item creation date",
+      "readonly": true
+    },
+    "progress_at": {
+      "type": "date",
+      "description": "item progress update date",
+      "readonly": true
+    },
+    "completed_at": {
+      "type": "date",
+      "description": "item upload completion date",
+      "readonly": true
+    },
+    "complete": {
+      "type": "boolean",
+      "description": "item upload success flag"
+    },
+    "oembed_url": {
+      "type": "string",
+      "description": "oembed url",
+      "readonly": true
+    },
+    "oembed_html": {
+      "type": "string",
+      "description": "oembed html",
+      "readonly": true
+    },
+    "oembed_type": {
+      "type": "string",
+      "description": "oembed type",
+      "readonly": true
+    },
+    "oembed_width": {
+      "type": "number",
+      "description": "oembed width",
+      "readonly": true
+    },
+    "oembed_height": {
+      "type": "number",
+      "description": "oembed height",
+      "readonly": true
+    },
+    "oembed_thumbnail_url": {
+      "type": "string",
+      "description": "oembed thumbnail url",
+      "readonly": true
+    },
+    "oembed_provider_name": {
+      "type": "string",
+      "description": "oembed provider",
+      "readonly": true
+    }
+  }
+}

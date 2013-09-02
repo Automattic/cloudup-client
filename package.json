@@ -1,0 +1,34 @@
+{
+  "name": "cloudup-client",
+  "description": "cloudup api client",
+  "version": "0.1.0",
+  "keywords": [
+    "cloudup",
+    "api",
+    "client",
+    "files",
+    "upload",
+    "service"
+  ],
+  "dependencies": {
+    "superagent": "0.15.4",
+    "debug": "*",
+    "batch": "0.4.0",
+    "JSONStream": "~0.4.3",
+    "mime": "1.2.11",
+    "only": "0.0.2",
+    "throttleit": "0.0.2",
+    "uid2": "0.0.3",
+    "form-data": "~0.1.0",
+    "cloudup-ua": "0.0.1",
+    "png-size": "~0.1.0",
+    "jpeg-size": "0.0.1",
+    "head": "~1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "better-assert": "*"
+  },
+  "main": "lib/client"
+}

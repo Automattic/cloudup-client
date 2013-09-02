@@ -1,0 +1,43 @@
+{
+  "name": "stream",
+  "description": "Cloudup item stream",
+  "version": "0.0.1",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "unique stream identifier",
+      "readonly": true,
+      "field": "uid"
+    },
+    "title": {
+      "type": "string",
+      "description": "stream title",
+      "max length": 512
+    },
+    "creator_id": {
+      "type": "string",
+      "description": "stream owner's identifier",
+      "readonly": true
+    },
+    "created_at": {
+      "type": "date",
+      "description": "stream creation date",
+      "readonly": true
+    },
+    "updated_at": {
+      "type": "date",
+      "description": "stream update date",
+      "readonly": true
+    },
+    "items": {
+      "type": "array",
+      "description": "items in the stream",
+      "readonly": true
+    },
+    "url": {
+      "type": "string",
+      "description": "cloudup stream url",
+      "readonly": true
+    }
+  }
+}
