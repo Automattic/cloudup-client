@@ -1,8 +1,7 @@
 
 /**
- * This file illustrates how you can
- * upload several items to a stream
- * in parallel.
+ * This file illustrates how you can request
+ * an oauth token for subsequent use.
  */
 
 var Cloudup = require('..');
