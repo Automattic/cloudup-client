@@ -15,9 +15,9 @@ var client = new Cloudup({
 
 client
 .stream({ title: 'Bookmarks' })
-.url('http://ign.com')
-.url('http://github.com')
-.url('http://cuteoverload.com')
+.link('http://ign.com')
+.link('http://github.com')
+.link('http://cuteoverload.com')
 .save(function(err){
   if (err) throw err;
   console.log('created stream');
