@@ -268,3 +268,16 @@ client
   and upload the associated
   content, invoking `fn(err)`.
 
+### User
+
+  Initialize a user.
+
+#### User.avatarSize(size)
+
+  Select an avatar by the given size string:
+
+```js
+client.user(function(err, user){
+  var img = user.avatarSize('300x300').url;
+});
+```
