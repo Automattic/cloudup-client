@@ -268,6 +268,15 @@ client
   and upload the associated
   content, invoking `fn(err)`.
 
+#### Item.thumbSize(size)
+
+  Select a thumb by the given size string:
+
+```js
+var thumb = item.thumbSize('1200x1200');
+console.log(thumb.url);
+```
+
 ### User
 
   Initialize a user.
