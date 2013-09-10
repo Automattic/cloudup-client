@@ -17,8 +17,8 @@ describe('Cloudup', function(){
     });
 
     assert(client.url);
-    assert(client.user);
-    assert(client.pass);
+    assert(client.username);
+    assert(client.password);
   })
 
   describe('.stream(id)', function(){
@@ -53,6 +53,19 @@ describe('Cloudup', function(){
           assert(Array.isArray(stream.item_ids));
           done();
         });
+      });
+    })
+  })
+
+  describe('.user(fn)', function(){
+    it('should respond with user information', function(done){
+      client.user(function(err, user){
+        if (err) return done(err);
+        assert(user.id);
+        user.name.should.equal('Ewald Ferret');
+        user.username.should.equal('ewald');
+        assert(Array.isArray(user.avatar));
+        done();
       });
     })
   })
