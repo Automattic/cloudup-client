@@ -1,7 +1,7 @@
 
 # Cloudup
 
-  Cloudup API client.
+  Cloudup API client for nodejs.
 
 ## Installation
 

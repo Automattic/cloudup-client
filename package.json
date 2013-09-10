@@ -1,7 +1,7 @@
 {
   "name": "cloudup-client",
   "description": "cloudup api client",
-  "version": "0.7.0",
+  "version": "0.1.0",
   "keywords": [
     "cloudup",
     "api",
@@ -30,5 +30,8 @@
     "should": "*",
     "better-assert": "*"
   },
-  "main": "lib/client"
+  "main": "lib/client",
+  "files": [
+    "lib/"
+  ]
 }
