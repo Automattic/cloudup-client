@@ -75,6 +75,16 @@ client.requestToken('ah5Oa7F3hT8', function(err, tok){
 });
 ```
 
+### Cloudup.user(fn:Function)
+
+  Get authenticated user information:
+
+```js
+client.user(function(err, user){
+  console.log(user);
+});
+```
+
 #### Cloudup.stream(options:Object|String)
 
   Create a new stream.
