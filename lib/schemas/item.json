@@ -6,8 +6,7 @@
     "id": {
       "type": "string",
       "description": "unique item identifier",
-      "readonly": true,
-      "field": "uid"
+      "readonly": true
     },
     "title": {
       "type": "string",
@@ -16,8 +15,7 @@
     },
     "stream_id": {
       "type": "string",
-      "description": "associated stream id",
-      "field": "collection_id"
+      "description": "associated stream id"
     },
     "type": {
       "type": "string",
@@ -46,8 +44,7 @@
     "remote_url": {
       "type": "string",
       "description": "remote url to the original item upload",
-      "readonly": true,
-      "computed": ["remote"]
+      "readonly": true
     },
     "mime": {
       "type": "string",
@@ -75,8 +72,7 @@
     "thumb_url": {
       "type": "string",
       "description": "initial item thumbnail",
-      "readonly": true,
-      "computed": ["thumb"]
+      "readonly": true
     },
     "thumb_width": {
       "type": "number",
@@ -95,8 +91,7 @@
     "transcode_url": {
       "type": "string",
       "description": "remote url to the transcoded video file",
-      "readonly": true,
-      "computed": ["transcode_remote"]
+      "readonly": true
     },
     "html": {
       "type": "string",

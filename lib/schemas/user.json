@@ -1,0 +1,27 @@
+{
+  "name": "user",
+  "description": "Cloudup user",
+  "version": "0.0.1",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "unique user identifier",
+      "readonly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "user name",
+      "readonly": true
+    },
+    "username": {
+      "type": "string",
+      "description": "user username",
+      "readonly": true
+    },
+    "avatar": {
+      "type": "object",
+      "description": "user avatar images",
+      "readonly": true
+    }
+  }
+}

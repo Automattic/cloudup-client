@@ -6,8 +6,7 @@
     "id": {
       "type": "string",
       "description": "unique stream identifier",
-      "readonly": true,
-      "field": "uid"
+      "readonly": true
     },
     "title": {
       "type": "string",

@@ -17,4 +17,5 @@ var client = new Cloudup({
 client.user(function(err, user){
   if (err) throw err;
   console.log(user);
+  console.log(user.avatarSize('300x300').url);
 });
