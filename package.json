@@ -23,7 +23,8 @@
     "cloudup-ua": "0.0.1",
     "png-size": "~0.1.0",
     "jpeg-size": "0.0.1",
-    "head": "~1.0.0"
+    "head": "~1.0.0",
+    "extend": "~1.2.1"
   },
   "devDependencies": {
     "mocha": "*",
