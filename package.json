@@ -31,8 +31,5 @@
     "should": "*",
     "better-assert": "*"
   },
-  "main": "lib/client",
-  "files": [
-    "lib/"
-  ]
+  "main": "lib/client"
 }
