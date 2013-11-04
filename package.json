@@ -14,7 +14,6 @@
     "superagent": "0.15.7",
     "debug": "*",
     "batch": "0.5.0",
-    "JSONStream": "0.7.1",
     "mime": "1.2.11",
     "only": "0.0.2",
     "throttleit": "0.0.2",
