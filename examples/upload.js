@@ -25,15 +25,15 @@ stream.on('item', function(item){
 
 stream
   .item({ title: 'Maru 1' })
-  .file('examples/files/maru-1.jpg')
+  .file('examples/files/maru-1.jpg');
 
 stream
   .item({ title: 'Maru 2' })
-  .file('examples/files/maru-2.jpg')
+  .file('examples/files/maru-2.jpg');
 
 stream
   .item({ title: 'Maru 3' })
-  .file('examples/files/maru-3.jpg')
+  .file('examples/files/maru-3.jpg');
 
 stream.on('save', function(){
   console.log('created http://local-cloudup.com/%s', stream.id);

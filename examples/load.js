@@ -18,7 +18,7 @@ var stream = client.stream({ title: 'Files' });
 
 var item = stream
   .item({ title: 'Configuration' })
-  .file('package.json')
+  .file('package.json');
 
 stream.save(function(){
   stream = client.stream(stream.id);
