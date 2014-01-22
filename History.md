@@ -1,4 +1,15 @@
 
+0.3.0 / 2014-01-21
+==================
+
+  * item: add required form fields sent from the server-side
+  * package: update "cloudup-ua" to v1.0.0
+  * examples: fix lint
+  * item: remove "JSONStream" variable
+  * stream: fix lint/whitespace
+  * stream: properly inherit from EventEmitter
+  * item: properly inherit from EventEmitter
+
 0.2.1 / 2013-10-28
 ==================
 
