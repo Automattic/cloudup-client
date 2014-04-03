@@ -6,7 +6,6 @@
  */
 
 var Cloudup = require('..');
-var fs = require('fs');
 
 var client = new Cloudup({
   url: 'http://localhost:3030',
