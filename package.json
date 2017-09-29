@@ -1,7 +1,7 @@
 {
   "name": "cloudup-client",
   "description": "cloudup api client",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "keywords": [
     "cloudup",
     "api",
@@ -20,9 +20,7 @@
     "uid2": "0.0.3",
     "form-data": "~0.1.0",
     "cloudup-ua": "1.0.0",
-    "png-size": "~0.1.0",
-    "jpeg-size": "0.0.1",
-    "head": "~1.0.0",
+    "image-size": "0.6.0",
     "extend": "~1.2.1"
   },
   "devDependencies": {
