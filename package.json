@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "superagent": "10.2.2",
-    "debug": "*",
+    "debug": "^4.4.3",
     "batch": "0.5.0",
     "mime": "1.4.1",
     "only": "0.0.2",
